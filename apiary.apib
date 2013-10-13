@@ -1,0 +1,154 @@
+HOST: http://vaultbridge.autodesk.com/
+
+--- Vault Bridge API ---
+
+---
+Sample REST API for Vault access.
+---
+
+--
+Folder Resources
+Provides access to folder information.
+--
+
+List details about given folder. Use id = -1 to obtain information about root folder.
+GET /api/folder/{id}
+> Accept: application/json
+> Content-Type: application/json
+< 200
+< Content-Type: application/json
+{
+    "Cloaked": false,
+    "Consume": false,
+    "CreateDate": "2013-04-07T19:44:46.04+02:00",
+    "CreateUserName": "Administrator",
+    "FullName": "$",
+    "Id": 1,
+    "IsLib": false,
+    "Locked": false,
+    "ParId": -1,
+    "Name": "$",
+    "NumClds": 8,
+    "Folders": [
+        {
+            "CatName": "Folder",
+            "Cloaked": false,
+            "Consume": false,
+            "CreateDate": "2013-06-14T13:29:50.557+02:00",
+            "CreateUserName": "Administrator",
+            "FullName": "$/Project 1",
+            "Id": 56,
+            "IsLib": false,
+            "Locked": false,
+            "ParId": 1,
+            "Name": "Project 1",
+            "NumClds": 0
+        }
+    ]
+    "Properties": [
+        {
+            "DispName": "Folder Path",
+            "DefId": 27,
+            "IsSys": true,
+            "SysName": "FolderPath",
+            "Typ": 0,
+            "Value": ""
+        },
+    ]
+}
+
+
+Lists files in given folder.
+GET /api/folder/{1}/files
+> Accept: application/json
+> Content-Type: application/json
+< 200
+< Content-Type: application/json
+{
+    "TotalCount": 3,
+    "Files": [
+        {
+            "CatName": "Base",
+            "CheckedOut": false,
+            "CkInDate": "2013-06-14T15:58:24.487+02:00",
+            "Cksum": 1284624018,
+            "Cloaked": false,
+            "Comm": "Initial check in",
+            "Consume": false,
+            "CreateDate": "2013-06-14T15:58:24.487+02:00",
+            "CreateUserName": "Administrator",
+            "FileClass": 0,
+            "LfCycStateName": "",
+            "RevLabel": "",
+            "FileSize": 509,
+            "FileStatus": 0,
+            "FolderId": 56,
+            "Hidden": false,
+            "Locked": false,
+            "MaxCkInVerNum": 1,
+            "ModDate": "2013-06-14T15:58:23.943+02:00",
+            "Id": 64,
+            "MasterId": 57,
+            "Name": "Catalog.csv",
+            "VerName": "Catalog.csv",
+            "VerNum": 1
+        }
+    ]
+}
+
+
+--
+File Resources
+Provides access to file information.
+--
+
+List details about given file.
+GET /api/file/{id}
+> Accept: application/json
+> Content-Type: application/json
+< 200
+< Content-Type: application/json
+{
+    "CatName": "Base",
+    "CheckedOut": false,
+    "CkInDate": "2013-06-14T16:00:03.18+02:00",
+    "Cksum": 690668805,
+    "Cloaked": false,
+    "Comm": "",
+    "Consume": false,
+    "CreateDate": "2013-06-14T16:00:03.18+02:00",
+    "CreateUserName": "Administrator",
+    "FileClass": 0,
+    "LfCycStateName": "",
+    "RevLabel": "",
+    "FileSize": 422,
+    "FileStatus": 0,
+    "FolderId": 56,
+    "Hidden": false,
+    "Locked": false,
+    "MaxCkInVerNum": 2,
+    "ModDate": "2013-06-14T15:59:55.493+02:00",
+    "Id": 67,
+    "MasterId": 61,
+    "Name": "Catalog.csv",
+    "VerName": "Catalog.csv",
+    "VerNum": 2,
+    "Properties": [
+        {
+            "DispName": "Classification",
+            "DefId": 1,
+            "IsSys": true,
+            "SysName": "Classification",
+            "Typ": 0,
+            "Value": "None"
+        },
+        {
+            "DispName": "Version",
+            "DefId": 2,
+            "IsSys": true,
+            "SysName": "VersionNumber",
+            "Typ": 1,
+            "Value": "2"
+        }
+    ]
+}
